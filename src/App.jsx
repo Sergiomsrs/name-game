@@ -21,14 +21,12 @@ export const App = () => {
   ============================ */
   const like = () => {
     if (!currentName) return
-
     setFavorites([...favorites, currentName])
     setAvailableNames(availableNames.slice(1))
   }
 
   const discard = () => {
     if (!currentName) return
-
     setAvailableNames(availableNames.slice(1))
   }
 
@@ -110,28 +108,28 @@ export const App = () => {
         </p>
       </header>
 
-
       {/* CARD AREA */}
-      <main className="flex-1 flex items-center justify-center w-full">
+      <main className="flex-1 relative w-full max-w-xs h-screen flex items-center justify-center overflow-hidden">
         {currentName ? (
           <div
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
-            className={`
-              bg-white w-full max-w-xs rounded-3xl shadow-2xl p-10 text-center
+            className={`bg-white w-full rounded-3xl shadow-2xl p-6 text-center flex flex-col justify-between items-center
               ${isAnimating ? "transition-transform duration-300" : ""}
             `}
             style={{
               transform: `translateX(${translateX}px) rotate(${translateX / 20}deg)`,
+              maxHeight: "80vh",
+              overflow: "hidden",
             }}
           >
-            <h2 className="text-5xl font-bold">
+            <h2 className="text-5xl font-bold leading-tight break-words px-2 text-center">
               {currentName.name}
             </h2>
 
             {/* SWIPE HINTS */}
-            <div className="flex justify-between mt-12 text-2xl opacity-40">
+            <div className="flex justify-between mt-12 text-2xl opacity-40 w-full px-4">
               <span>❌</span>
               <span>❤️</span>
             </div>
