@@ -1,18 +1,7 @@
 import { useState } from "react"
+import { NAMES } from "./data/names" // ajusta la ruta si hace falta
 
 export const App = () => {
-  /* ============================
-     DATA
-  ============================ */
-  const NAMES = [
-    { id: 1, name: "Lucas", origin: "Latín", meaning: "Portador de luz" },
-    { id: 2, name: "Sofía", origin: "Griego", meaning: "Sabiduría" },
-    { id: 3, name: "Mateo", origin: "Hebreo", meaning: "Regalo de Dios" },
-    { id: 4, name: "Valentina", origin: "Latín", meaning: "Valiente" },
-    { id: 5, name: "Leo", origin: "Latín", meaning: "León" },
-    { id: 6, name: "Emma", origin: "Germánico", meaning: "Fuerza" },
-  ]
-
   /* ============================
      STATE
   ============================ */
@@ -31,11 +20,15 @@ export const App = () => {
      ACTIONS
   ============================ */
   const like = () => {
+    if (!currentName) return
+
     setFavorites([...favorites, currentName])
     setAvailableNames(availableNames.slice(1))
   }
 
   const discard = () => {
+    if (!currentName) return
+
     setAvailableNames(availableNames.slice(1))
   }
 
@@ -94,13 +87,29 @@ export const App = () => {
 
       {/* HEADER */}
       <header className="text-center mb-6">
-        <h1 className="text-2xl font-extrabold">
+        <h1 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
           👶 NameSwipe
         </h1>
-        <p className="text-sm text-gray-600">
+
+        <p className="text-sm text-gray-600 mt-1">
           Desliza para elegir el nombre perfecto
         </p>
+
+        {/* MENSAJE BROMA */}
+        <div className="mt-3 px-4 py-2 rounded-2xl bg-white/70 shadow-sm inline-block">
+          <p className="text-sm font-semibold text-purple-600">
+            Vamos Patricia…
+          </p>
+          <p className="text-xs text-gray-600">
+            que no puede ser tan difícil 😅
+          </p>
+        </div>
+
+        <p className="text-xs text-gray-500 mt-3">
+          Quedan {availableNames.length} nombres
+        </p>
       </header>
+
 
       {/* CARD AREA */}
       <main className="flex-1 flex items-center justify-center w-full">
@@ -110,27 +119,19 @@ export const App = () => {
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
             className={`
-              bg-white w-full max-w-xs rounded-3xl shadow-2xl p-8 text-center
+              bg-white w-full max-w-xs rounded-3xl shadow-2xl p-10 text-center
               ${isAnimating ? "transition-transform duration-300" : ""}
             `}
             style={{
               transform: `translateX(${translateX}px) rotate(${translateX / 20}deg)`,
             }}
           >
-            <h2 className="text-4xl font-bold mb-2">
+            <h2 className="text-5xl font-bold">
               {currentName.name}
             </h2>
 
-            <p className="text-xs text-gray-500">
-              {currentName.origin}
-            </p>
-
-            <p className="mt-4 text-gray-600 italic text-sm">
-              “{currentName.meaning}”
-            </p>
-
             {/* SWIPE HINTS */}
-            <div className="flex justify-between mt-10 text-2xl opacity-40">
+            <div className="flex justify-between mt-12 text-2xl opacity-40">
               <span>❌</span>
               <span>❤️</span>
             </div>
@@ -140,6 +141,9 @@ export const App = () => {
             <p className="text-lg font-semibold">
               🎉 No quedan más nombres
             </p>
+            <p className="text-sm mt-1">
+              Has revisado todos los nombres
+            </p>
           </div>
         )}
       </main>
@@ -147,7 +151,7 @@ export const App = () => {
       {/* FAVORITES */}
       <section className="w-full max-w-xs mb-6">
         <h3 className="text-sm font-semibold mb-2">
-          Favoritos
+          Favoritos ❤️
         </h3>
 
         <div className="bg-white/70 rounded-xl shadow p-3">
