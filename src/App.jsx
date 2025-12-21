@@ -81,11 +81,11 @@ export const App = () => {
      UI
   ============================ */
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 flex flex-col items-center px-4 pt-6">
+    <div className="min-h-screen bg-linear-to-br from-pink-100 via-purple-100 to-blue-100 flex flex-col items-center  px-4 pt-6">
 
       {/* HEADER */}
       <header className="text-center mb-6">
-        <h1 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+        <h1 className="text-3xl font-extrabold tracking-tight bg-linear-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
           👶 NameSwipe
         </h1>
 
@@ -93,7 +93,7 @@ export const App = () => {
           Desliza para elegir el nombre perfecto
         </p>
 
-        {/* MENSAJE BROMA */}
+        {/* MENSAJE PERSONALIZADO*/}
         <div className="mt-3 px-4 py-2 rounded-2xl bg-white/70 shadow-sm inline-block">
           <p className="text-sm font-semibold text-purple-600">
             Vamos Patricia…
@@ -109,27 +109,26 @@ export const App = () => {
       </header>
 
       {/* CARD AREA */}
-      <main className="flex-1 relative w-full max-w-xs h-screen flex items-center justify-center overflow-hidden">
+      <main className="relative w-full max-w-xs flex items-center justify-center h-60 overflow-hidden">
         {currentName ? (
           <div
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
-            className={`bg-white w-full rounded-3xl shadow-2xl p-6 text-center flex flex-col justify-between items-center
+            className={`bg-white w-full rounded-3xl shadow-xs p-6 text-center flex flex-col justify-between items-center
               ${isAnimating ? "transition-transform duration-300" : ""}
             `}
             style={{
               transform: `translateX(${translateX}px) rotate(${translateX / 20}deg)`,
-              maxHeight: "80vh",
               overflow: "hidden",
             }}
           >
-            <h2 className="text-5xl font-bold leading-tight break-words px-2 text-center">
+            <h2 className="text-5xl font-bold leading-tight wrap-break-words px-2 text-center">
               {currentName.name}
             </h2>
 
             {/* SWIPE HINTS */}
-            <div className="flex justify-between mt-12 text-2xl opacity-40 w-full px-4">
+            <div className="flex justify-between mt-6 text-2xl opacity-40 w-full px-4">
               <span>❌</span>
               <span>❤️</span>
             </div>
@@ -147,15 +146,15 @@ export const App = () => {
       </main>
 
       {/* FAVORITES */}
-      <section className="w-full max-w-xs mb-6">
+      <section className="w-full max-w-xs mt-0 mb-6 shrink-0">
         <h3 className="text-sm font-semibold mb-2">
           Favoritos ❤️
         </h3>
 
-        <div className="bg-white/70 rounded-xl shadow p-3">
+        <div className="bg-white/70 rounded-xl shadow p-3 min-h-16">
           {favorites.length === 0 ? (
             <p className="text-gray-400 text-xs">
-              Desliza a la derecha para guardar
+              Desliza a la derecha para guardar y a la izquierda para descartar
             </p>
           ) : (
             <ul className="space-y-1">
