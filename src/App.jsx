@@ -89,7 +89,7 @@ export const App = () => {
           👶 NameSwipe
         </h1>
 
-        <p className="text-sm text-gray-600 mt-1">
+        <p className="text-sm text-gray-600 mt-1 font-bold">
           Desliza para elegir el nombre perfecto
         </p>
 
