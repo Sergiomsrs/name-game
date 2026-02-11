@@ -67,12 +67,33 @@ const shuffleArray = (array) => {
    NOMBRES CLÁSICOS - NIÑAS
 ============================= */
 const CLASSIC_NAMES_GIRLS = [
+
     "María", "Carmen", "Isabel", "Rosa", "Antonia", "Dolores",
     "Violeta", "Aurora", "Teresa", "Valentina", "Lucía", "Martina",
     "Eloísa", "Eugenia", "Fátima", "Florencia", "Gabriela",
     "Helena", "Hortensia", "Abigaíl", "Ada", "Adelaida",
-    "Adele", "Adelina"
-]
+    "Adele", "Adelina",
+
+
+    "Julia", "Clara", "Sofía", "Victoria", "Elena", "Inés",
+    "Beatriz", "Alicia", "Silvia", "Sara", "Blanca", "Cristina",
+    "Laura", "Irene", "Raquel", "Marta", "Paula", "Ángela",
+    "Gloria", "Mercedes", "Pilar", "Lourdes", "Paloma", "Soledad",
+
+
+    "Manuela", "Candela", "Jimena", "Mencía", "Catalina", "Leonor",
+    "Cayetana", "Julieta", "Adela", "Casilda", "Carlota", "Olivia",
+    "Celia", "Marina", "Daniela", "Adriana", "Berta", "Blanca",
+    "Matilde", "Elisa", "Amparo", "Esperanza", "Concepción", "Purificación",
+
+    "Alejandra", "Adriana", "Valeria", "Amalia", "Constanza", "Estefanía",
+    "Inmaculada", "Magdalena", "Margarita", "Miriam", "Natalia", "Noemí",
+    "Patricia", "Rebeca", "Regina", "Rocío", "Rosalía", "Sonia",
+    "Susana", "Verónica", "Yolanda", "Aitana", "Begoña", "Arantxa",
+
+    "Ana", "Eva", "Belén", "Diana", "Elsa", "Gema", "Lola", "Nieves",
+    "Olga", "Rita", "Reyes", "Paz", "Luz", "Gracia", "Cora", "Dora"
+];
 
 /* =============================
    NOMBRES MODERNOS - NIÑAS
